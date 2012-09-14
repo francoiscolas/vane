@@ -1,0 +1,12 @@
+<% if (contentFor === 'head') { %>
+    <title>Home</title>
+    <%= includeJavascripts('home') %>
+    <%= includeStylesheets('home') %>
+<% } else { %>
+    <div id="home">
+        <h1>Home</h1>
+        <p>
+           The random number is "<%= this.randomNumber %>".
+        </p>
+    </div>
+<% } %>

@@ -1,0 +1,24 @@
+{
+    "name"          : "vane",
+    "version"       : "0.0.0",
+    "description"   : "Web framework for Node.js.",
+    "author"        : "François Colas <francoiscolas@gmail.com>",
+
+    "repository": {
+        "type"  : "git",
+        "url"   : "git://github.com/francoiscolas/vane.git"
+    },
+
+    "dependencies": {
+        "jogger"      : "1.0.0",
+        "underscore"  : "1.3.3",
+        "mongodb"     : "1.1.6",
+        "uglify-js"   : "1.3.3",
+        "clean-css"   : "0.6.0"
+    },
+
+    "engines": "node >= 0.8.0",
+
+    "bin": "bin/vane"
+}
+

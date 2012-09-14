@@ -1,0 +1,12 @@
+{
+    "javascripts": {
+        "home": []
+    },
+    "stylesheets": {
+        "home": [
+            "css/core.css",
+            "css/normalize.css",
+            "css/home/index.css"
+        ]
+    }
+}

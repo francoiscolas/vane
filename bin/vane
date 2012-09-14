@@ -1,0 +1,16 @@
+#!/bin/env node
+
+var usage = function () {
+    console.error('Usage: vane new <path>');
+    console.error('       vane assets');
+    console.error('       vane routes');
+};
+
+if (process.argv.length <= 2) {
+    usage();
+} else {
+    var command = require('./commands/' + process.argv[2]);
+
+    if (command.apply(null, process.argv.slice(3)) === -1)
+        usage();
+}
