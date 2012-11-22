@@ -1,6 +1,4 @@
-var app = new (require('./config/application.js'))({
-    // options
-});
+var app = new (require('./config/application.js'))();
 
 // serve static files when launched in development mode
 if (app.isDevelopment()) {
@@ -10,5 +8,4 @@ if (app.isDevelopment()) {
         static.serve(request.nodeRequest, response.nodeResponse);
     };
 }
-
 app.start(8080, '127.0.0.1');
