@@ -1,6 +1,6 @@
-var vane = require('vane');
+var VANE = require('vane');
 
-var ApplicationController = vane.Controller.extend({
+var ApplicationController = VANE.Controller.extend({
 
 //    currentUser: null,
 //

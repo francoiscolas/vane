@@ -7,9 +7,9 @@ Vane
 Installation
 ------------
 
-````bash
+```bash
 $ npm install -g git://github.com/francoiscolas/vane.git
-````
+```
 
 
 Usage
