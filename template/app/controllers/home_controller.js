@@ -1,6 +1,10 @@
 var ApplicationController = require('./application_controller');
 
-var HomeController = module.exports = ApplicationController.extend({
+var HomeController = ApplicationController.extend({
+
+    initialize: function () {
+//        this.skipFilter('requireUser');
+    },
 
     index: function (params) {
         this.randomNumber = Math.round(Math.random() * 1000);
@@ -8,3 +12,5 @@ var HomeController = module.exports = ApplicationController.extend({
     }
 
 });
+
+module.exports = HomeController;

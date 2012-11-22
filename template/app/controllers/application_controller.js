@@ -1,11 +1,11 @@
 var vane = require('vane');
 
-var ApplicationController = module.exports = vane.Controller.extend({
+var ApplicationController = vane.Controller.extend({
 
 //    currentUser: null,
 //
 //    initialize: function () {
-//        //this.beforeFilter('requireUser');
+//        //this.filter('requireUser');
 //    },
 //
 //    requireUser: function (callback) {
@@ -14,7 +14,7 @@ var ApplicationController = module.exports = vane.Controller.extend({
 //        if (self.session.has('user_id')) {
 //            User.find(self.session.get('user_id')).toArray(function (users) {
 //                self.currentUser = users[0] || null;
-//                callback(users.length > 0);
+//                callback(!!self.currentUser);
 //            });
 //        } else {
 //            callback(false);
@@ -22,3 +22,5 @@ var ApplicationController = module.exports = vane.Controller.extend({
 //    }
 
 });
+
+module.exports = ApplicationController;

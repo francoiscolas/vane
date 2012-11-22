@@ -1,1 +1,1 @@
-module.exports = require('./lib/vane.js');
+module.exports = require('./lib/vane');

@@ -8,10 +8,10 @@ var APP_NAME_CAMEL_CASE = null;
 var APP_NAME_LOWER_CASE = null;
 
 var copy = function (source, dest) {
+    var entries = FS.readdirSync(source);
+
     if (!FS.existsSync(dest))
         FS.mkdir(dest, 0755);
-
-    var entries = FS.readdirSync(source);
 
     for (var i = 0; i < entries.length; i++) {
         var s = PATH.join(source, entries[i]);
