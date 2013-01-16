@@ -7,9 +7,6 @@
     "dependencies": {
         "vane": "git://github.com/francoiscolas/vane.git"
     },
-    "devDependencies": {
-        "node-static": "0.6.1"
-    },
 
     "engines": "node >= 0.8.0"
 }

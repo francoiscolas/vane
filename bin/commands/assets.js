@@ -1,8 +1,9 @@
+var CLEANCSS = require('clean-css');
 var FS       = require('fs');
 var PATH     = require('path');
-var ZLIB     = require('zlib');
 var UGLIFYJS = require('uglify-js');
-var CLEANCSS = require('clean-css');
+var ZLIB     = require('zlib');
+var vane     = require('../../../vane');
 
 var noop = function () {
 };
@@ -87,8 +88,8 @@ var minifyStylesheets = function (stylesheets, destDir, callback) {
 };
 
 module.exports = function () {
-    var app       = new (require(PATH.join(process.cwd(), 'config', 'application.js')))();
-    var assetsDir = PATH.join(app.publicDir, 'assets');
+    var app        = new vane.Application(process.cwd());
+    var assetsPath = PATH.join(app.publicDir, 'assets');
 
     var javascripts = map(app.assets.javascripts, function (sources) {
         return sources.map(function (source) {
@@ -102,9 +103,9 @@ module.exports = function () {
         });
     });
 
-    FS.mkdirSync(rm(assetsDir), 0755);
+    FS.mkdirSync(rm(assetsPath), 0755);
 
-    minifyJavascripts(javascripts, assetsDir, function () {
-        minifyStylesheets(stylesheets, assetsDir);
+    minifyJavascripts(javascripts, assetsPath, function () {
+        minifyStylesheets(stylesheets, assetsPath);
     });
 };

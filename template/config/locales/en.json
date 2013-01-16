@@ -1,0 +1,8 @@
+{
+    "home": {
+        "index": {
+            "title"         : "Home",
+            "randomNumberIs": "The random number is %1."
+        }
+    }
+}

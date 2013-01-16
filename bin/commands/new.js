@@ -1,45 +1,39 @@
-var PATH       = require('path');
-var FS         = require('fs');
-var camelize   = require('../camelize');
-var underscore = require('../underscore');
+var FS   = require('fs');
+var PATH = require('path');
 
-var APP_NAME            = null;
-var APP_NAME_CAMEL_CASE = null;
-var APP_NAME_LOWER_CASE = null;
+var appName = null;
+var appNameLowerCase = null;
 
 var copy = function (source, dest) {
     var entries = FS.readdirSync(source);
 
     if (!FS.existsSync(dest))
-        FS.mkdir(dest, 0755);
+        FS.mkdirSync(dest, 0755);
 
     for (var i = 0; i < entries.length; i++) {
         var s = PATH.join(source, entries[i]);
         var d = PATH.join(dest, entries[i]);
 
         console.log('create %s', d);
-        if (FS.statSync(s).isDirectory()) {
+        if (FS.statSync(s).isDirectory())
             copy(s, d);
-        } else {
-            FS.writeFileSync(d, FS.readFileSync(s, 'UTF-8')
-                .replace(/__APP_NAME__/g, APP_NAME)
-                .replace(/__APP_NAME_CAMEL_CASE__/g, APP_NAME_CAMEL_CASE)
-                .replace(/__APP_NAME_LOWER_CASE__/g, APP_NAME_LOWER_CASE) , 'UTF-8');
-        }
+        else
+            FS.writeFileSync(d, FS.readFileSync(s, 'UTF-8').replace(/__APP_NAME__/g, appName), 'UTF-8');
     }
 };
 
-module.exports = function (path) {
-    if (!path)
+module.exports = function (argv) {
+    var templatePath = PATH.join(__dirname, '..', '..', 'template');
+    var appPath      = argv._.pop();
+
+    if (!appPath)
         return -1;
 
-    var name = PATH.basename(path);
+    appName = PATH.basename(appPath);
+    appNameLowerCase = appName.toLowerCase();
 
-    if (name === '.' || name === '..')
-        name = PATH.basename(process.cwd());
-    APP_NAME            = name;
-    APP_NAME_CAMEL_CASE = camelize(name);
-    APP_NAME_LOWER_CASE = name.toLowerCase();
+    if (appName === '.' || appName === '..')
+        appName = PATH.basename(process.cwd());
 
-    copy(PATH.join(__dirname, '..', '..', 'template'), path);
+    copy(templatePath, appPath);
 };
