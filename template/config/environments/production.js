@@ -15,6 +15,6 @@ module.exports = {
     },
 
     "database": {
-        "uri": "mongodb://127.0.0.1/__APP_NAME_LOWER___production"
+        "uri": "mongodb://127.0.0.1/__APP_NAME_LOWER_CASE___production"
     }
 };

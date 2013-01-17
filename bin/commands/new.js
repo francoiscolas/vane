@@ -15,10 +15,13 @@ var copy = function (source, dest) {
         var d = PATH.join(dest, entries[i]);
 
         console.log('create %s', d);
-        if (FS.statSync(s).isDirectory())
+        if (FS.statSync(s).isDirectory()) {
             copy(s, d);
-        else
-            FS.writeFileSync(d, FS.readFileSync(s, 'UTF-8').replace(/__APP_NAME__/g, appName), 'UTF-8');
+        } else {
+            FS.writeFileSync(d, FS.readFileSync(s, 'UTF-8')
+                .replace(/__APP_NAME__/g, appName)
+                .replace(/__APP_NAME_LOWER_CASE__/g, appNameLowerCase), 'UTF-8');
+        }
     }
 };
 
