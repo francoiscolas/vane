@@ -1,8 +1,8 @@
 {
-    "home": {
-        "index": {
-            "title"         : "Home",
-            "randomNumberIs": "The random number is %1."
-        }
+  "home": {
+    "index": {
+      "title"         : "Home",
+      "randomNumberIs": "The random number is %1."
     }
+  }
 }
