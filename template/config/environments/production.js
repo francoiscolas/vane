@@ -1,17 +1,14 @@
 module.exports = {
-    "servePublicDir": false,
-
-    "host": "127.0.0.1",
-    "port": 8080,
+    "server": {
+        "host"            : "127.0.0.1",
+        "port"            : 8080,
+        "servePublicDir"  : false,
+//        "maxContentLength": 2 * 1024 * 1024,
+//        "uploadDir"       : require("os").tmpDir()
+    },
 
     "i18n": {
         "defaultLocale": "en"
-    },
-
-    "router": {
-        "autoParseBody"   : true,
-        "maxContentLength": 2 * 1024 * 1024,
-        "uploadDir"       : require("os").tmpDir()
     },
 
     "database": {
