@@ -7,8 +7,9 @@ var HomeController = ApplicationController.extend({
     },
 
     index: function (params) {
-        this.randomNumber = Math.round(Math.random() * 1000);
-        this.render();
+        this.render({
+            randomNumber: Math.round(Math.random() * 1000)
+        });
     }
 
 });
