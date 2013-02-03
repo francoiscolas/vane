@@ -6,11 +6,16 @@ var argv    = require('optimist').argv;
 var command = argv._.shift();
 
 var usage = function () {
-    console.error('Usage: vane new <path>');
-    console.error('       vane assets');
-    console.error('       vane server [-e production|development] [-p port]');
-    console.error('       vane routes');
+    console.log('Usage: vane new <path>');
+    console.log('       vane assets');
+    console.log('       vane server [-e production|development] [-p port]');
+    console.log('       vane routes');
 };
 
-if (!command || require(PATH.join(__dirname, 'commands', command))(argv) === -1)
+try {
+    if (!command || require(PATH.join(__dirname, 'commands', command))(argv) === -1)
+        usage();
+} catch (error) {
+    console.error(error.stack || error);
     usage();
+}
